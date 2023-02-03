@@ -1,0 +1,19 @@
+random_number_average =[]
+for i in range(500):
+  n=np.random.rand(7)
+  average=sum(n)
+  random_number_average .append(average)
+
+plt.hist(random_number_average ,density=True,color="green",histtype='bar',bins=20)
+plt.xlabel("x_bar")
+plt.ylabel("freequency of occurance")
+sns.displot(random_number_average ,kind='kde',color="black",label="histogram")
+plt.title("N=7")
+
+
+x = np.linspace(0, 7,500)
+mean,std=norm.fit(random_number_average )
+y = norm.pdf(x, mean, std)
+plt.plot(x,y,label="gaussian curve for the distribution")
+plt.title("N=7")
+plt.legend()
